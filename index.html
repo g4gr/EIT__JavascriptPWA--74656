@@ -1,15 +1,28 @@
 <!DOCTYPE html>
 <html lang="es-AR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark light">
+    <meta name="theme-color" content="#1a1a1a" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
 
     <link rel="stylesheet" href="./styles.css">
+
+    <script>
+        // Establecer modo oscuro por defecto
+        if (!localStorage.getItem('theme')) {
+            localStorage.setItem('theme', 'dark');
+            document.documentElement.classList.add('dark');
+        }
+    </script>
 
     <!-- TODO: Agregar preferencias de color -->
 
     <title>Proyecto # 1 - Javascript PWA</title>
 </head>
+
 <body class="Body">
     <header class="Header">
         <div class="container">
@@ -23,6 +36,7 @@
     </header>
     <main class="Main"></main>
 
-    <script src="./App.js" defer ></script>
+    <script src="./App.js" defer></script>
 </body>
+
 </html>
