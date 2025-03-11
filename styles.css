@@ -1,0 +1,55 @@
+@charset 'UTF-8' ;
+
+:root {
+    /* - Layout - */
+    --l_maxWidht : 1440px ;
+    --l_minWidth : 375px ;
+
+    /* - Colors - */
+    --c_blue900 : hsl( 235, 21%, 11% ) ;
+}
+
+/* --- HTML --- */
+* {
+    margin: 0;
+    padding: 0;
+
+    outline : 1px dotted red ;
+}
+
+html {
+}
+
+/* --- Body --- */
+.Body {
+    max-width: var( --l_maxWidht );
+    margin-inline: auto ;
+}
+
+/* --- Header --- */
+.Header {
+    height : 30dvh ;
+
+    background-image: url( './assets/bg-desktop-dark.jpg' );
+    background-position: center ;
+    background-repeat: no-repeat;
+    
+
+    container : Header / inline-size ;
+
+}
+
+@container Header ( max-width : 375px ){
+    .Header {
+        background-image: url( './assets/bg-mobile-dark.jpg' );
+        background-position: center ;
+        background-repeat: no-repeat;
+    }
+}
+
+/* --- Main --- */
+.Main {
+    height: 70dvh;
+
+    background-color: var( --c_blue900 ) ;
+}
