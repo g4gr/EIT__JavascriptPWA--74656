@@ -8,6 +8,8 @@
     <meta name="theme-color" content="#1a1a1a" media="(prefers-color-scheme: dark)">
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
 
+    <link rel="manifest" href="./manifest.json">
+    <link rel="stylesheet" href="./reset.css" >
     <link rel="stylesheet" href="./styles.css">
 
     <script>
@@ -18,6 +20,8 @@
         }
     </script>
 
+    <script src="./assets/service-worker.js" defer></script>
+    <script src="./App.js" defer></script>
     <!-- TODO: Agregar preferencias de color -->
 
     <title>Proyecto # 1 - Javascript PWA</title>
@@ -26,17 +30,18 @@
 <body class="Body">
     <header class="Header">
         <div class="container">
-            <h1>The best TODO App</h1>
-            <input type="checkbox" name="" id="">
+            <h1 class="title" >The best TODO App</h1>
+            <input type="checkbox" name="" id="js-switchLignt">
         </div>
-        <form action="">
-            <input type="checkbox" name="" id="">
-            <input type="text" name="" id="" placeholder="Create a new TODO...">
+        <form class="form" action="">
+            <fieldset class="form__fieldset">
+                <input class="form__checkbox" type="checkbox" name="" id="">
+                <input class="form__input" type="text" name="" id="" placeholder="Create a new TODO...">
+            </fieldset>
         </form>
     </header>
     <main class="Main"></main>
 
-    <script src="./App.js" defer></script>
 </body>
 
 </html>

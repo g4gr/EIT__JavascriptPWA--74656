@@ -1,12 +1,20 @@
-@charset 'UTF-8' ;
+@charset 'UTF-8';
 
 :root {
     /* - Layout - */
-    --l_maxWidht : 1440px ;
-    --l_minWidth : 375px ;
+    --l_maxWidht: 1440px;
+    --l_minWidth: 600px;
 
-    /* - Colors - */
-    --c_blue900 : hsl( 235, 21%, 11% ) ;
+    /* - Fonts - */
+    --f_fontSize: 16px;
+    --f_lineHeight: 1.5;
+    --f_fontWeight: 400;
+    --f_fontStyle: normal
+        /* - Colors - */
+        --c_blue900: hsl(235, 21%, 11%);
+    --c_grey400: hsl(0, 0%, 30%);
+    --c_white: hsl(0, 0%, 100%);
+    --c_black: hsl(0, 0%, 0%);
 }
 
 /* --- HTML --- */
@@ -14,35 +22,96 @@
     margin: 0;
     padding: 0;
 
-    outline : 1px dotted red ;
+    outline: 1px dotted red;
 }
 
 html {
+    font-size: var(--f_fontSize);
 }
 
 /* --- Body --- */
 .Body {
-    max-width: var( --l_maxWidht );
-    margin-inline: auto ;
+    max-width: var(--l_maxWidht);
+    margin-inline: auto;
+
+    display: grid;
+    grid: auto / repeat(12, 1fr);
+
+
+
+    font-size: clamp(100%, .75rem + .25vw, 25px);
+    line-height: var(--f_lineHeight);
+    font-weight: var(--f_fontWeight);
+    font-style: var(--f_fontStyle);
 }
 
 /* --- Header --- */
 .Header {
-    height : 30dvh ;
+    height: 30dvh;
 
-    background-image: url( './assets/bg-desktop-dark.jpg' );
-    background-position: center ;
+    grid-row: 1 / 2;
+    grid-column: 1 / 13;
+
+    background-image: url('./assets/bg-desktop-dark.jpg');
+    background-position: center;
     background-repeat: no-repeat;
-    
 
-    container : Header / inline-size ;
-
+    container: Header / inline-size;
 }
 
-@container Header ( max-width : 375px ){
+.Header .container {
+    height: 100%;
+
+    place-content: center;
+    align-items: center;
+}
+
+.Header .container .title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--c_white);
+}
+
+.Header .form {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.Header .form__fieldset {
+    min-width: 50vw;
+    padding: 1rem;
+
+    display: inline-flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap : 1rem ;
+
+    border: 1px solid var(--c_grey400);
+}
+
+.Header .form [ type=text] {
+    padding: 1rem;
+}
+
+.Header .form [type=checkbox] {
+    height: 3rem;
+    width: 3rem;
+    border-radius: 100%;
+    background-color: var(--c_blue900);
+    border: 1px solid var(--c_grey400);
+}
+
+
+@container Header (max-width : 600px) {
     .Header {
-        background-image: url( './assets/bg-mobile-dark.jpg' );
-        background-position: center ;
+        padding-inline: 1rem;
+
+        background-image: url('./assets/bg-mobile-dark.jpg');
+        background-position: center;
         background-repeat: no-repeat;
     }
 }
@@ -51,5 +120,8 @@ html {
 .Main {
     height: 70dvh;
 
-    background-color: var( --c_blue900 ) ;
+    grid-row: 2 / 3;
+    grid-column: 1 / 13;
+
+    background-color: var(--c_blue900);
 }
